@@ -13,6 +13,8 @@ public static class GroqOpenApiHttpClientRegistrar
     /// <summary>
     /// Adds <see cref="GroqOpenApiHttpClient"/> as a singleton service. <para/>
     /// </summary>
+    /// <param name="services">Service collection that receives the registration.</param>
+    /// <returns>The same service collection, so additional registrations can be chained.</returns>
     public static IServiceCollection AddGroqOpenApiHttpClientAsSingleton(this IServiceCollection services)
     {
         services.AddHttpClientCacheAsSingleton()
@@ -24,6 +26,8 @@ public static class GroqOpenApiHttpClientRegistrar
     /// <summary>
     /// Adds <see cref="GroqOpenApiHttpClient"/> as a scoped service. <para/>
     /// </summary>
+    /// <param name="services">Service collection that receives the registration.</param>
+    /// <returns>The same service collection, so additional registrations can be chained.</returns>
     public static IServiceCollection AddGroqOpenApiHttpClientAsScoped(this IServiceCollection services)
     {
         services.AddHttpClientCacheAsSingleton()
