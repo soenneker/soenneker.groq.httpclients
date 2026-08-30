@@ -2,17 +2,18 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Threading;
+
 namespace Soenneker.Groq.HttpClients.Abstract;
 
 /// <summary>
-/// A .NET thread-safe singleton HttpClient for 
+/// Provides a cached <see cref="HttpClient"/> configured for Groq's OpenAI-compatible API.
 /// </summary>
-public interface IGroqOpenApiHttpClient: IDisposable, IAsyncDisposable
+public interface IGroqOpenApiHttpClient : IDisposable, IAsyncDisposable
 {
     /// <summary>
-    /// Returns the configured HTTP client used by the Groq OpenAPI HTTP Client.
+    /// Gets the configured HTTP client. Repeated calls within this provider's lifetime return the cached instance.
     /// </summary>
     /// <param name="cancellationToken">Token used to cancel the operation.</param>
-    /// <returns>A task whose result is the requested HTTP client.</returns>
+    /// <returns>The configured Groq HTTP client.</returns>
     ValueTask<HttpClient> Get(CancellationToken cancellationToken = default);
 }

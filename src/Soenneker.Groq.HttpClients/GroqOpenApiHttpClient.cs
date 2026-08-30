@@ -11,7 +11,6 @@ using Soenneker.Utils.HttpClientCache.Abstract;
 
 namespace Soenneker.Groq.HttpClients;
 
-/// <inheritdoc cref="IGroqOpenApiHttpClient"/>
 public sealed class GroqOpenApiHttpClient : IGroqOpenApiHttpClient
 {
     private readonly IHttpClientCache _httpClientCache;
