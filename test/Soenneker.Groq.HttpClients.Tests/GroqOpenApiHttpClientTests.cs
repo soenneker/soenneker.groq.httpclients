@@ -5,6 +5,7 @@ using Soenneker.Groq.HttpClients.Abstract;
 using Soenneker.Groq.HttpClients.Registrars;
 using Soenneker.Tests.HostedUnit;
 using Soenneker.Utils.HttpClientCache.Abstract;
+using System.Threading;
 
 namespace Soenneker.Groq.HttpClients.Tests;
 
@@ -25,7 +26,7 @@ public sealed class GroqOpenApiHttpClientTests : HostedUnitTest
     }
 
     [Test]
-    public async ValueTask Scoped_registration_owns_an_independent_cache()
+    public async ValueTask Scoped_registration_owns_an_independent_cache(CancellationToken cancellationToken)
     {
         var services = new ServiceCollection();
 
