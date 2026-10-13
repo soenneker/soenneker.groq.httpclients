@@ -29,7 +29,7 @@ public sealed class GroqOpenApiHttpClient : IGroqOpenApiHttpClient
     {
         return _httpClientCache.Get(nameof(GroqOpenApiHttpClient), (config: _config, baseUrl: _config["Groq:ClientBaseUrl"] ?? _prodBaseUrl), static state =>
         {
-            var apiKey = state.config.GetValueStrict<string>("Groq:ApiKey");
+            var apiKey = state.config.GetStringStrict("Groq:ApiKey");
             string authHeaderName = state.config["Groq:AuthHeaderName"] ?? "Authorization";
             string authHeaderValueTemplate = state.config["Groq:AuthHeaderValueTemplate"] ?? "Bearer {token}";
             string authHeaderValue = authHeaderValueTemplate.Replace("{token}", apiKey, StringComparison.Ordinal);
